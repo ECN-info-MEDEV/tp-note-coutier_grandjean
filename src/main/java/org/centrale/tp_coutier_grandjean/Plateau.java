@@ -252,15 +252,15 @@ public class Plateau {
         
         //Annonce de l'action au joueur (pion noir)
         System.out.println("Combien dois-tu placer de marqueur noir ?");
-        for(nbpions=0;nbpions<4;nbpions++){
-            System.out.println("- "+ (nbpions+1));
+        for(nbpions=0;nbpions<5;nbpions++){
+            System.out.println("- "+ (nbpions));
         }
         
         while(!valide){
             try{
                 choix=scan.nextInt();
                 
-                if(choix>0 && choix<5){
+                if(choix>=0 && choix<5){
                     valide = true;
                     for (i=0;i<choix;i++){
                        combi.add("x"); 
@@ -283,8 +283,8 @@ public class Plateau {
         
         if (combi.size()<4){
             System.out.println("Combien dois-tu placer de marqueur blanc ?");
-            for(nbpions=0;nbpions<(4-combi.size());nbpions++){
-                System.out.println("- "+ (nbpions+1));
+            for(nbpions=0;nbpions<(5-combi.size());nbpions++){
+                System.out.println("- "+ (nbpions));
             }
             
             while(!valide){
@@ -292,7 +292,7 @@ public class Plateau {
                     choix=scan.nextInt();
                     scan.nextLine();
 
-                    if(choix>0 && choix<(5-combi.size())){
+                    if(choix>=0 && choix<(5-combi.size())){
                         valide = true;
                         for (i=0;i<choix;i++){
                            combi.add("o"); 
@@ -308,7 +308,9 @@ public class Plateau {
         }
         
         //Mise à jour du plateau
-        this.listeMarqueurs.set((ligneJouee), combi);
+        for(i=0; i<combi.size();i++){
+            this.listeMarqueurs.get(ligneJouee).set(i, combi.get(i));
+        }
             
         return gagne;
     }
