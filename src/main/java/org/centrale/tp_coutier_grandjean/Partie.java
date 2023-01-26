@@ -113,32 +113,43 @@ public class Partie {
     }
     
     /**
-     * Méthode permettant de gérer un tour de jeu
-     * @param jeu : Plateau de la manche en cours 
+     * Méthode permettant de gérer un tour de jeu 
+     * @return retourne si la partie est finie ou non
      */
     
-    public void tourDeJeu(Plateau jeu){
+    public boolean tourDeJeu(){
         Scanner scan = new Scanner(System.in);
         Joueur codeur = new Joueur();
+        Joueur decodeur = new Joueur();
         
         // Le joueur qui code décide du code
         for (Joueur j: joueurs){
             if (!j.isRole()){
                 System.out.println("C'est à " + j.getNom() + " de choisir le code");
-                jeu.choixCode(scan);
+                this.getPlateau().choixCode(scan);
                 codeur = j;
             }
+            else {
+               decodeur = j; 
+            }
         }
+        
         
         // l'autre joueur tente de trouver le code
         boolean echec = true;
         while(echec){
-            jeu.choixCombinaison(scan);
-            boolean trouve = jeu.verifCombinaison(scan);
-            jeu.setLigneJouee(jeu.getLigneJouee() + 1);
+            System.out.println("");
+            this.getPlateau().affichePlateau();
+            System.out.println("");
+            System.out.println("C'est à " + decodeur.getNom() + " de trouver le code");
+            this.getPlateau().choixCombinaison(scan);
+            System.out.println("");
+            System.out.println("C'est à " + codeur.getNom() + " de vérifier le code");
+            boolean trouve = this.getPlateau().verifCombinaison(scan);
+            this.getPlateau().setLigneJouee(this.getPlateau().getLigneJouee() + 1);
             if (trouve){
                 echec = false;
-                codeur.ajoutScore(jeu);
+                codeur.ajoutScore(this.getPlateau());
             }
         }
         
@@ -151,7 +162,9 @@ public class Partie {
         this.setMancheActuelle(this.getMancheActuelle()+1);
         
         // On nettoie le plateau
-        jeu.nettoyerPlateau();
+        this.getPlateau().nettoyerPlateau();
+        
+        return this.getMancheActuelle() > this.getNbMancheTot();
     }
     
     
