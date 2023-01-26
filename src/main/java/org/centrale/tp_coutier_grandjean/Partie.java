@@ -19,7 +19,7 @@ public class Partie {
     private float nbMancheTot; //Nombre de manches qui seront jouées (doit être un nb pair)
     private List<Joueur> joueurs;
     private Plateau plateau;
-    private float mancheActuelle; //num de la manche en cours
+    private int mancheActuelle; //num de la manche en cours
     
     // Constructeur
     public Partie(){
@@ -59,11 +59,11 @@ public class Partie {
         this.plateau = plateau;
     }
 
-    public float getMancheActuelle() {
+    public int getMancheActuelle() {
         return mancheActuelle;
     }
 
-    public void setMancheActuelle(float mancheActuelle) {
+    public void setMancheActuelle(int mancheActuelle) {
         this.mancheActuelle = mancheActuelle;
     }
     
@@ -71,7 +71,7 @@ public class Partie {
     /**
      * Méthode permettant d'initialiser une partie
      */ 
-    public void initialiserPartie(){
+    public void initialisationPartie(){
         
         // Initialisation des joueurs
         System.out.println("Initialisation du premier joueur qui sera le premier à décoder : ");
