@@ -7,11 +7,12 @@ package org.centrale.tp_coutier_grandjean;
 
 /**
  *
- * @author Laure
+ * @author Domitille
  */
 public class TP_COUTIER_GRANDJEAN {
 
     public static void main(String[] args) {
-
+        Partie p = new Partie();
+        p.initialisationPartie();
     }
 }
