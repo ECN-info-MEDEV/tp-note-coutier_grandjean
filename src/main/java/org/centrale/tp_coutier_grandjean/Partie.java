@@ -120,6 +120,7 @@ public class Partie {
     public void tourDeJeu(Plateau jeu){
         Scanner scan = new Scanner(System.in);
         Joueur codeur = new Joueur();
+        Joueur decodeur = new Joueur();
         
         // Le joueur qui code décide du code
         for (Joueur j: joueurs){
@@ -128,17 +129,26 @@ public class Partie {
                 jeu.choixCode(scan);
                 codeur = j;
             }
+            else{
+                decodeur = j;
+            }
         }
         
         // l'autre joueur tente de trouver le code
         boolean echec = true;
         while(echec){
-            jeu.choixCombinaison(scan);
-            boolean trouve = jeu.verifCombinaison(scan);
-            jeu.setLigneJouee(jeu.getLigneJouee() + 1);
+            System.out.println("");
+            this.getPlateau().affichePlateau();
+            System.out.println("");
+            System.out.println("C'est à " + decodeur.getNom() + " de trouver le code");
+            this.getPlateau().choixCombinaison(scan);
+            System.out.println("");
+            System.out.println("C'est à " + codeur.getNom() + " de vérifier le code");
+            boolean trouve = this.getPlateau().verifCombinaison(scan);
+            this.getPlateau().setLigneJouee(this.getPlateau().getLigneJouee() + 1);
             if (trouve){
                 echec = false;
-                codeur.ajoutScore(jeu);
+                codeur.ajoutScore(this.getPlateau());
             }
         }
         
