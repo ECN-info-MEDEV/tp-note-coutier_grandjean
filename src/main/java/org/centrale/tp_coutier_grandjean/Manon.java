@@ -16,8 +16,11 @@ public class Manon {
         Plateau p = new Plateau();
         p.initialisationPlateau();
         p.affichePlateau();
-        p.choixCode(scan);
-        p.choixCombinaison(scan);
+        //p.choixCode(scan);
+        //p.choixCombinaison(scan);
+        //p.affichePlateau();
+        System.out.println(p.verifCombinaison(scan));
+        
         p.affichePlateau();
     }
     
