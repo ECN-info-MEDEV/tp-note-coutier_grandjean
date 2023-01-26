@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeAll;
 
 /**
  *
- * @author Laure
+ * @author Domitille
  */
 public class JoueurTest {
     
