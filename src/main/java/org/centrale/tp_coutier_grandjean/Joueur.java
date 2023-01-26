@@ -75,4 +75,14 @@ public class Joueur {
             }     
         }    
     }
+    
+       /**
+     * Permet de mettre à jour le score du joueur quand il trouve la bonne combinaison
+     * @param jeu : Plateau de la manche en cours
+     */
+    
+    public void ajoutScore(Plateau jeu){
+        this.setScore(this.getScore()+ jeu.getLigneJouee());
+    }
+    
 }

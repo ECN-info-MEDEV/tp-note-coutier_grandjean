@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- *
- * @author Laure
+ * Classe permettant de gérer une partie
+ * @author Domitille
  */
 public class Partie {
     
@@ -118,21 +118,28 @@ public class Partie {
      */
     
     public void tourDeJeu(Plateau jeu){
+        Scanner scan = new Scanner(System.in);
+        Joueur codeur = new Joueur();
         
         // Le joueur qui code décide du code
         for (Joueur j: joueurs){
             if (!j.isRole()){
                 System.out.println("C'est à " + j.getNom() + " de choisir le code");
-                jeu.choixCode();
+                jeu.choixCode(scan);
+                codeur = j;
             }
         }
         
         // l'autre joueur tente de trouver le code
         boolean echec = true;
         while(echec){
-            jeu.choixCombinaison();
-            jeu.verifCombinaison();
-            jeu.setligneJouee(jeu.getligneJouee() + 1)
+            jeu.choixCombinaison(scan);
+            boolean trouve = jeu.verifCombinaison(scan);
+            jeu.setLigneJouee(jeu.getLigneJouee() + 1);
+            if (trouve){
+                echec = false;
+                codeur.ajoutScore(jeu);
+            }
         }
         
         // Le code a été trouvé, on inverse les rôles des joueurs
@@ -142,6 +149,9 @@ public class Partie {
         
         // On passe à la manche suivante 
         this.setMancheActuelle(this.getMancheActuelle()+1);
+        
+        // On nettoie le plateau
+        jeu.nettoyerPlateau();
     }
     
     
