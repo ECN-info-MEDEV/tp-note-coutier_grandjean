@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="7" failures="7" name="org.centrale.tp_coutier_grandjean.PlateauTest" time="0.028" errors="0" skipped="0">
+<testsuite tests="2" failures="0" name="org.centrale.tp_coutier_grandjean.PlateauTest" time="0.006" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="18.0.2.1+1-1"/>
@@ -14,6 +14,7 @@
     <property name="user.script" value=""/>
     <property name="user.country" value="FR"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="test" value="org.centrale.tp_coutier_grandjean.PlateauTest"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="user.dir" value="D:\Documents\Centrale\EI2\P2\MEDEV\TPNOTE\tp-note-coutier_grandjean\TP_COUTIER_GRANDJEAN"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
@@ -44,7 +45,7 @@
     <property name="java.class.path" value="C:\Program Files\NetBeans-14\netbeans\java\maven\boot\plexus-classworlds-2.6.0.jar"/>
     <property name="java.vm.specification.version" value="18"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=C:\Program Files\NetBeans-14\netbeans\java\maven-nblib\netbeans-eventspy.jar clean install"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=org.centrale.tp_coutier_grandjean.PlateauTest -Dmaven.ext.class.path=C:\Program Files\NetBeans-14\netbeans\java\maven-nblib\netbeans-eventspy.jar surefire:test"/>
     <property name="java.home" value="C:\Program Files\Java\jdk-18.0.2.1"/>
     <property name="user.language" value="fr"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -60,101 +61,6 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="org.centrale.tp_coutier_grandjean.PlateauTest" name="org.centrale.tp_coutier_grandjean.PlateauTest.testVerifCombinaison" time="0.006">
-    <failure message="Cannot invoke &quot;java.util.Scanner.nextInt()&quot; because &quot;scan&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;java.util.Scanner.nextInt()&quot; because &quot;scan&quot; is null
-	at org.centrale.tp_coutier_grandjean.Plateau.verifCombinaison(Plateau.java:261)
-	at org.centrale.tp_coutier_grandjean.PlateauTest.testVerifCombinaison(PlateauTest.java:119)
-</failure>
-    <system-out>verifCombinaison
-Combien dois-tu placer de marqueur noir ?
-- 1
-- 2
-- 3
-- 4
-</system-out>
-  </testcase>
-  <testcase classname="org.centrale.tp_coutier_grandjean.PlateauTest" name="org.centrale.tp_coutier_grandjean.PlateauTest.testNettoyerPlateau" time="0.017">
-    <failure message="The test case is a prototype." type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: The test case is a prototype.
-	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
-	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
-	at org.centrale.tp_coutier_grandjean.PlateauTest.testNettoyerPlateau(PlateauTest.java:54)
-</failure>
-    <system-out>nettoyerPlateau
-</system-out>
-  </testcase>
-  <testcase classname="org.centrale.tp_coutier_grandjean.PlateauTest" name="org.centrale.tp_coutier_grandjean.PlateauTest.testChoixCombinaison" time="0.002">
-    <failure message="Cannot invoke &quot;java.util.Scanner.nextLine()&quot; because &quot;scan&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;java.util.Scanner.nextLine()&quot; because &quot;scan&quot; is null
-	at org.centrale.tp_coutier_grandjean.Plateau.choixPions(Plateau.java:183)
-	at org.centrale.tp_coutier_grandjean.Plateau.choixCombinaison(Plateau.java:233)
-	at org.centrale.tp_coutier_grandjean.PlateauTest.testChoixCombinaison(PlateauTest.java:105)
-</failure>
-    <system-out>choixCombinaison
-Légende des pions : J = jaune, b = bleu, R = rouge, V = vert, B = blanc, N = noir
-Choisis la combinaison à tester de gauche à droite : 
-Ton pion 1 sera de couleur
-- J
-- b
-- R
-- V
-- B
-- N
-</system-out>
-  </testcase>
-  <testcase classname="org.centrale.tp_coutier_grandjean.PlateauTest" name="org.centrale.tp_coutier_grandjean.PlateauTest.testInitialisationPlateau" time="0.001">
-    <failure message="The test case is a prototype." type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: The test case is a prototype.
-	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
-	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
-	at org.centrale.tp_coutier_grandjean.PlateauTest.testInitialisationPlateau(PlateauTest.java:42)
-</failure>
-    <system-out>initialisationPlateau
-</system-out>
-  </testcase>
-  <testcase classname="org.centrale.tp_coutier_grandjean.PlateauTest" name="org.centrale.tp_coutier_grandjean.PlateauTest.testChoixCode" time="0.001">
-    <failure message="Cannot invoke &quot;java.util.Scanner.nextLine()&quot; because &quot;scan&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;java.util.Scanner.nextLine()&quot; because &quot;scan&quot; is null
-	at org.centrale.tp_coutier_grandjean.Plateau.choixPions(Plateau.java:183)
-	at org.centrale.tp_coutier_grandjean.Plateau.choixCode(Plateau.java:215)
-	at org.centrale.tp_coutier_grandjean.PlateauTest.testChoixCode(PlateauTest.java:92)
-</failure>
-    <system-out>choixCode
-Légende des pions : J = jaune, b = bleu, R = rouge, V = vert, B = blanc, N = noir
-Choisis ton code secret de gauche à droite : 
-Ton pion 1 sera de couleur
-- J
-- b
-- R
-- V
-- B
-- N
-</system-out>
-  </testcase>
-  <testcase classname="org.centrale.tp_coutier_grandjean.PlateauTest" name="org.centrale.tp_coutier_grandjean.PlateauTest.testChoixPions" time="0.001">
-    <failure message="Cannot invoke &quot;java.util.Scanner.nextLine()&quot; because &quot;scan&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;java.util.Scanner.nextLine()&quot; because &quot;scan&quot; is null
-	at org.centrale.tp_coutier_grandjean.Plateau.choixPions(Plateau.java:183)
-	at org.centrale.tp_coutier_grandjean.PlateauTest.testChoixPions(PlateauTest.java:78)
-</failure>
-    <system-out>choixPions
-Ton pion 1 sera de couleur
-- J
-- b
-- R
-- V
-- B
-- N
-</system-out>
-  </testcase>
-  <testcase classname="org.centrale.tp_coutier_grandjean.PlateauTest" name="org.centrale.tp_coutier_grandjean.PlateauTest.testAffichePlateau" time="0">
-    <failure message="Index 0 out of bounds for length 0" type="java.lang.IndexOutOfBoundsException">java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:100)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
-	at java.base/java.util.Objects.checkIndex(Objects.java:359)
-	at java.base/java.util.ArrayList.get(ArrayList.java:427)
-	at org.centrale.tp_coutier_grandjean.Plateau.affichePlateau(Plateau.java:150)
-	at org.centrale.tp_coutier_grandjean.PlateauTest.testAffichePlateau(PlateauTest.java:64)
-</failure>
-    <system-out>affichePlateau
-Légende des pions : J = jaune, b = bleu, R = rouge, V = vert, B = blanc, N = noir
-Légende des marqueurs : o = petit marqueur blanc, x = petit marqueur noir
-</system-out>
-  </testcase>
+  <testcase classname="org.centrale.tp_coutier_grandjean.PlateauTest" name="org.centrale.tp_coutier_grandjean.PlateauTest.testNettoyerPlateau" time="0.006"/>
+  <testcase classname="org.centrale.tp_coutier_grandjean.PlateauTest" name="org.centrale.tp_coutier_grandjean.PlateauTest.testInitialisationPlateau" time="0"/>
 </testsuite>

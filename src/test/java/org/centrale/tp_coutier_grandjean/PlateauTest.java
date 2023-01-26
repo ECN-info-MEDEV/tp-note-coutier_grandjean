@@ -4,6 +4,7 @@
  */
 package org.centrale.tp_coutier_grandjean;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import org.junit.jupiter.api.AfterAll;
@@ -68,16 +69,23 @@ public class PlateauTest {
         
         int i;
         int j;
+        List<String> listeP ;
+        List<String> listeM ;
   
         Plateau p1 = new Plateau();
         Plateau p2 = new Plateau();
         p1.initialisationPlateau();
-        
-        for (i=0;i<20;i++){
-            for (j=0;j<6;j++){
-                p2.getListePions().get(i).set(j, "A");
-                p2.getListeMarqueurs().get(i).set(j, "A");
-            }
+   
+        for(i=0; i<20; i++){
+            listeP = new ArrayList<>();
+            listeM = new ArrayList<>();
+            for (j=0; j<6; j++){
+                listeP.add("A");
+                listeM.add("A");
+            } 
+            p2.getListePions().add(listeP);
+            p2.getListeMarqueurs().add(listeM);
+        }
         
         p2.nettoyerPlateau();
             
@@ -97,7 +105,8 @@ public class PlateauTest {
             }
             
         }
+        
     }
 
-    }  
+    
 }
