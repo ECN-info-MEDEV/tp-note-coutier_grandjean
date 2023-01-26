@@ -6,6 +6,7 @@ package org.centrale.tp_coutier_grandjean;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -19,11 +20,7 @@ public class Plateau {
     /**
      * largeur du plateau de pions
      */
-    private static final int LARGEURPIONS = 4;
-    /**
-     * largeur du plateau de marqueur
-     */
-    private static final int LARGEURMARQUEURS = 2;
+    private static final int LARGEUR = 4;
     /**
      * hauteur globale du plateau
      */
@@ -112,18 +109,14 @@ public class Plateau {
    
         for (int i=0; i<HAUTEUR; i++){
             listeP = new ArrayList<>();
-            for (int j=0; j<LARGEURPIONS; j++){
-                listeP.add(".");
-            } 
-            this.listePions.add(listeP);
-        }
-        for (int i=0; i<HAUTEUR; i++){
             listeM = new ArrayList<>();
-            for (int j=0; j<LARGEURMARQUEURS; j++){
+            for (int j=0; j<LARGEUR; j++){
+                listeP.add(".");
                 listeM.add(".");
             } 
+            this.listePions.add(listeP);
             this.listeMarqueurs.add(listeM);
-        }   
+        }
     }
     
     /**
@@ -153,12 +146,12 @@ public class Plateau {
         
         //Affichage du plateau
         for (i=0; i<HAUTEUR;i++){
-            for (j=0;j<(LARGEURPIONS);j++){
+            for (j=0;j<(LARGEUR);j++){
                 System.out.print(listePions.get(i).get(j));
             }
             System.out.print("|");
-            for (k=0;k<(LARGEURMARQUEURS);k++){
-                System.out.print(listePions.get(i).get(k));
+            for (k=0;k<(LARGEUR);k++){
+                System.out.print(listeMarqueurs.get(i).get(k));
             }
             System.out.println(" ");
         }
@@ -178,7 +171,7 @@ public class Plateau {
         List<String> pions = new ArrayList();
         
         //Pour les 4 pions
-        for (i=0;i<LARGEURPIONS;i++){
+        for (i=0;i<LARGEUR;i++){
             System.out.println("Ton pion " + (i+1) + " sera de couleur");
             for(String c: COULEURPIONS){
                 System.out.println("- " + c);                 
@@ -241,6 +234,83 @@ public class Plateau {
 
         //Mise à jour du plateau
         this.listePions.set((ligneJouee), combi);
+    }
+    
+    /**
+     * Permet au joueur de donner des indices sur la validité de la combinaison proposée
+     * @param scan
+     * @return vrai si le joueur d'en face à tout trouvé
+     */
+    public boolean verifCombinaison(Scanner scan){
+        
+        boolean valide = false;
+        boolean gagne=false;
+        int choix;
+        List<String> combi = new ArrayList();
+        int i;
+        int nbpions;
+        
+        //Annonce de l'action au joueur (pion noir)
+        System.out.println("Combien dois-tu placer de marqueur noir ?");
+        for(nbpions=0;nbpions<4;nbpions++){
+            System.out.println("- "+ (nbpions+1));
+        }
+        
+        while(!valide){
+            try{
+                choix=scan.nextInt();
+                
+                if(choix>0 && choix<5){
+                    valide = true;
+                    for (i=0;i<choix;i++){
+                       combi.add("x"); 
+                    }
+                    if(choix==4){
+                        gagne=true;
+                    }
+                }else{
+                    System.out.println("Tu n'as pas entré de numéro valide, réessaie.");
+                    scan.nextLine();
+                }
+            }catch(InputMismatchException e){
+                System.out.println("Tu n'as pas entré de numéro valide, réessaie.");
+                scan.nextLine();
+            }
+            
+        }
+        
+        valide=false;
+        
+        if (combi.size()<4){
+            System.out.println("Combien dois-tu placer de marqueur blanc ?");
+            for(nbpions=0;nbpions<(4-combi.size());nbpions++){
+                System.out.println("- "+ (nbpions+1));
+            }
+            
+            while(!valide){
+                try{
+                    choix=scan.nextInt();
+                    scan.nextLine();
+
+                    if(choix>0 && choix<(5-combi.size())){
+                        valide = true;
+                        for (i=0;i<choix;i++){
+                           combi.add("o"); 
+                        }
+                    }else{
+                        System.out.println("Tu n'as pas entré de numéro valide, réessaie.");
+                    }
+                }catch(InputMismatchException e){
+                    System.out.println("Tu n'as pas entré de numéro valide, réessaie.");
+                }
+            
+            }
+        }
+        
+        //Mise à jour du plateau
+        this.listeMarqueurs.set((ligneJouee), combi);
+            
+        return gagne;
     }
     
 }
