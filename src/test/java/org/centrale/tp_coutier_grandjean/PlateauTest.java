@@ -6,7 +6,6 @@ package org.centrale.tp_coutier_grandjean;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
