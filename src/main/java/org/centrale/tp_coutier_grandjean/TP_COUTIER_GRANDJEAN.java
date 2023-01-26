@@ -13,6 +13,6 @@ public class TP_COUTIER_GRANDJEAN {
 
     public static void main(String[] args) {
         Partie p = new Partie();
-        p.initialiserPartie();
+        p.initialisationPartie();
     }
 }
