@@ -134,6 +134,7 @@ public class Partie {
             }
         }
         
+        
         // l'autre joueur tente de trouver le code
         boolean echec = true;
         while(echec){
