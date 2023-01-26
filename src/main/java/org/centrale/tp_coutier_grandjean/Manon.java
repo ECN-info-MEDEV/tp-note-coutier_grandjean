@@ -4,14 +4,20 @@
  */
 package org.centrale.tp_coutier_grandjean;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Manon Coutier
  */
 public class Manon {
     public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
         Plateau p = new Plateau();
         p.initialisationPlateau();
+        p.affichePlateau();
+        p.choixCode(scan);
+        p.choixCombinaison(scan);
         p.affichePlateau();
     }
     
