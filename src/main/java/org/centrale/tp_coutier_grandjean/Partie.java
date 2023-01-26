@@ -113,11 +113,11 @@ public class Partie {
     }
     
     /**
-     * Méthode permettant de gérer un tour de jeu
-     * @param jeu : Plateau de la manche en cours 
+     * Méthode permettant de gérer un tour de jeu 
+     * @return retourne si la partie est finie ou non
      */
     
-    public void tourDeJeu(Plateau jeu){
+    public boolean tourDeJeu(){
         Scanner scan = new Scanner(System.in);
         Joueur codeur = new Joueur();
         Joueur decodeur = new Joueur();
@@ -126,13 +126,16 @@ public class Partie {
         for (Joueur j: joueurs){
             if (!j.isRole()){
                 System.out.println("C'est à " + j.getNom() + " de choisir le code");
-                jeu.choixCode(scan);
+                this.getPlateau().choixCode(scan);
                 codeur = j;
             }
+
             else{
                 decodeur = j;
+
             }
         }
+        
         
         // l'autre joueur tente de trouver le code
         boolean echec = true;
@@ -161,7 +164,9 @@ public class Partie {
         this.setMancheActuelle(this.getMancheActuelle()+1);
         
         // On nettoie le plateau
-        jeu.nettoyerPlateau();
+        this.getPlateau().nettoyerPlateau();
+        
+        return this.getMancheActuelle() > this.getNbMancheTot();
     }
     
     
