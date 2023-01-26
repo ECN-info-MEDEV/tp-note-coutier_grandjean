@@ -51,6 +51,33 @@ public class Plateau {
         
     }
     
+    //GETTERS ET SETTERS
+
+    public List<List<String>> getListePions() {
+        return listePions;
+    }
+
+    public void setListePions(List<List<String>> listePions) {
+        this.listePions = listePions;
+    }
+
+    public List<List<String>> getListeMarqueurs() {
+        return listeMarqueurs;
+    }
+
+    public void setListeMarqueurs(List<List<String>> listeMarqueurs) {
+        this.listeMarqueurs = listeMarqueurs;
+    }
+
+    public List<String> getCode() {
+        return code;
+    }
+
+    public void setCode(List<String> code) {
+        this.code = code;
+    }
+    
+    
     //AUTRES METHODES
     /**
      * Initialisation des deux listes constituant le plateau
