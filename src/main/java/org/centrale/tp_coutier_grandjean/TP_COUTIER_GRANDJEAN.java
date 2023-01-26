@@ -12,6 +12,7 @@ package org.centrale.tp_coutier_grandjean;
 public class TP_COUTIER_GRANDJEAN {
 
     public static void main(String[] args) {
-
+        Partie p = new Partie();
+        p.initialiserPartie();
     }
 }
