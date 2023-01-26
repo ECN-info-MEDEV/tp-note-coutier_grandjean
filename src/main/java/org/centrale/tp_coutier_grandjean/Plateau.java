@@ -308,7 +308,9 @@ public class Plateau {
         }
         
         //Mise à jour du plateau
-        this.listeMarqueurs.set((ligneJouee), combi);
+        for(i=0; i<combi.size();i++){
+            this.listeMarqueurs.get(ligneJouee).set(i, combi.get(i));
+        }
             
         return gagne;
     }
