@@ -13,11 +13,13 @@ public class TP_COUTIER_GRANDJEAN {
 
     public static void main(String[] args) {
         Partie partie = new Partie();
-        partie.initialiserPartie();
+        partie.initialisationPartie();
         boolean jouer = true;
         while (jouer){
             jouer = partie.tourDeJeu();
         }
+        System.out.println("Score de " + partie.getJoueurs().get(0).getNom() + " est de " + partie.getJoueurs().get(0).getScore());
+        System.out.println("Score de " + partie.getJoueurs().get(1).getNom() + " est de " + partie.getJoueurs().get(1).getScore());
         System.out.println("Jeu fini !");
     }
 }

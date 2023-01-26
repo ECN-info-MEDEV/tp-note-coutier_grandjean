@@ -152,6 +152,7 @@ public class Partie {
             if (trouve){
                 echec = false;
                 codeur.ajoutScore(this.getPlateau());
+                System.out.println("C'est gagné !");
             }
         }
         
@@ -166,7 +167,7 @@ public class Partie {
         // On nettoie le plateau
         this.getPlateau().nettoyerPlateau();
         
-        return this.getMancheActuelle() > this.getNbMancheTot();
+        return this.getMancheActuelle() <= this.getNbMancheTot();
     }
     
     
