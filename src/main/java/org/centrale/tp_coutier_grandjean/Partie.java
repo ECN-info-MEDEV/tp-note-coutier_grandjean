@@ -129,8 +129,10 @@ public class Partie {
                 this.getPlateau().choixCode(scan);
                 codeur = j;
             }
-            else {
-               decodeur = j; 
+
+            else{
+                decodeur = j;
+
             }
         }
         
