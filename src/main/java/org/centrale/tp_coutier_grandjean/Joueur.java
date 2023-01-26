@@ -15,7 +15,7 @@ public class Joueur {
     //Attributs
     private String nom;
     private boolean role; //true si le joueur est le décodeur, false sinon
-    private float score;
+    private int score;
     
     //Constructeur
     public Joueur(){
