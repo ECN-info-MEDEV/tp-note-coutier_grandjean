@@ -15,7 +15,7 @@ public class Joueur {
     //Attributs
     private String nom;
     private boolean role; //true si le joueur est le décodeur, false sinon
-    private float score;
+    private int score;
     
     //Constructeur
     public Joueur(){
@@ -42,11 +42,11 @@ public class Joueur {
         this.role = role;
     }
 
-    public float getScore() {
+    public int getScore() {
         return score;
     }
 
-    public void setScore(float score) {
+    public void setScore(int score) {
         this.score = score;
     }
     
